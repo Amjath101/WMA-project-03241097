@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechLearn IT Training Center</title>
+    <style>
+        /* CSS Variables for Light and Dark Themes */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --header-bg: #f4f4f4;
+            --section-bg: #fafafa;
+            --accent-color: #007bff;
+            --border-color: #dddddd;
+        }
+
+        body.dark-mode {
+            --bg-color: #121212;
+            --text-color: #ffffff;
+            --header-bg: #1e1e1e;
+            --section-bg: #2a2a2a;
+            --accent-color: #4dabf7;
+            --border-color: #444444;
+        }
+
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        header {
+            background-color: var(--header-bg);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #2e0223;
+        }
+
+        #theme-toggle {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+
+        #theme-toggle:hover {
+            background-color: #380016;
+        }
+
+        section {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: var(--section-bg);
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            scroll-margin-top: 80px; /* For smooth scrolling */
+        }
+
+        section h2 {
+            margin-top: 0;
+            color: var(--accent-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--header-bg);
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Courses Section */
+        .course-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .course-item {
+            flex: 1 1 calc(33.333% - 20px);
+            background-color: var(--bg-color);
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .course-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .course-item h3 {
+            margin-top: 0;
+            color: var(--accent-color);
+        }
+
+        /* Trends Section */
+        #trends ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #trends li {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: var(--bg-color);
+            border-left: 5px solid var(--accent-color);
+            border-radius: 5px;
+        }
+
+        #refresh-trends {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1em;
+            margin-top: 10px;
+        }
+
+        #refresh-trends:hover {
+            background-color: #0056b3;
+        }
+
+        /* Contact Section */
+        #contact ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #contact li {
+            margin-bottom: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav {
+                margin-top: 10px;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            .course-list {
+                flex-direction: column;
+            }
+
+            .course-item {
+                flex: 1 1 100%;
+            }
+
+            section {
+                padding: 20px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>FUTURE FORCE ACADEMY</h1>
+        <nav>
+            <a href="C:\Users\Ahamed Haneef\Desktop\amj web\home.html">Home</a>
+            <a href="C:\Users\Ahamed Haneef\Desktop\amj web\cources.html">Courses</a>
+            <a href="C:\Users\Ahamed Haneef\Desktop\amj web\about.html">About Us</a>
+            <a href="C:\Users\Ahamed Haneef\Desktop\amj web\contact.html">Contact</a>
+           
+        </nav>
+        <button id="theme-toggle">Toggle Dark Mode</button>
+    </header>
+
+    <section id="home" style="border-radius: 10px 10px 40px 40px;">
+        <h2>Welcome to TechLearn</h2>
+        <img src="https://mgslanguage.com/uploads/2023/07/what-is-information-technology-course.webp" alt="IT Training Banner" style="width: 100%; max-width: 100%; height: 400px; border-radius: 8px; margin-bottom: 20px; ">
+        <p>Empower your future with our comprehensive IT training programs. Whether you're a beginner or looking to upskill, we offer hands-on courses in essential computer skills to help you thrive in the digital world.</p>
+    </section>
+
+    <section id="courses">
+        <h2 style="color: #121212;">Our Courses:</h2>
+        <div class="course-list">
+            <div class="course-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWNNsRg08p85DkS-OVRRRyDYbJK0smILHWPA&s" alt="MS Office Course" style="width: 100%; height: 170px; object-fit: cover; border-radius: 5px; margin-bottom: 10px;">
+                <h3>MS Office</h3>
+                <p>Master productivity tools like Word, Excel, and PowerPoint for efficient office work.</p>
+            </div>
+            <div class="course-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsY3G2N4ttHI1KBmhvDHQn7cOJRYhkuHnxrQ&s" alt="Web Designing Course" style="width: 100%; height: 150px; object-fit: cover; border-radius: 5px; margin-bottom: 10px;">
+                <h3>Web Designing</h3>
+                <p>Learn HTML, CSS, and JavaScript to build stunning websites from scratch.</p>
+            </div>
+            <div class="course-item">
+                <img src="https://sofconit.com/wp-content/uploads/2023/12/Python.png" alt="Python Course" style="width: 100%; height: 150px; object-fit: cover; border-radius: 5px; margin-bottom: 10px;">
+                <h3>Python</h3>
+                <p>Dive into programming with Python, covering basics to advanced topics like data analysis.</p>
+            </div>
+            <div class="course-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1WklZKoexVDmh41RmxlHVfe3svNv9y6lh1w&s" alt="Data Science Course" style="width: 100%; height: 150px; object-fit: cover; border-radius: 5px; margin-bottom: 10px;">
+                <h3>Data Science</h3>
+                <p>Explore data manipulation, visualization, and machine learning with real-world projects.</p>
+            </div>
+            <div class="course-item">
+                <img src="https://eu-images.contentstack.com/v3/assets/blt69509c9116440be8/blt8ffb90a2f64bacfa/6776f4544b281ca5e2bc465a/cybersecurity_NicoElNino-AlamyStockPhoto.jpg" alt="Cybersecurity Course" style="width: 100%; height: 150px; object-fit: cover; border-radius: 5px; margin-bottom: 10px;">
+                <h3>Cybersecurity</h3>
+                <p>Understand network security, ethical hacking, and best practices to protect digital assets.</p>
+            </div>
+            <div class="course-item">
+                <img src="https://ceitcomputer.com/wp-content/uploads/2024/01/Mscit-classes-in-mumbai-1024x682.png" alt="Other Courses" style="width: 100%; height: 150px; object-fit: cover; border-radius: 5px; margin-bottom: 10px;">
+                <h3>Other Computer-Related Courses</h3>
+                <p>Includes topics like Cloud Computing, AI Fundamentals, and more. Contact us for custom options.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="trends">
+        <h2>Current IT Trends</h2>
+        <p>Stay ahead with the latest in technology. Here's what's trending now:</p>
+        <ul id="trends-list">
+            <!-- Trends will be loaded dynamically by JS -->
+        </ul>
+        <button id="refresh-trends">Refresh Trends</button>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <img src="https://img.freepik.com/free-photo/young-indian-man-standing-outdoor-with-laptop-front_231208-2776.jpg?semt=ais_hybrid&w=740&q=80" alt="About TechLearn" style="width: 100%; max-width: 400px; height: auto; border-radius: 8px; margin-bottom: 20px; float: right; margin-left: 20px;">
+        <p>TechLearn IT Training Center is dedicated to providing high-quality, affordable education in information technology. Our expert instructors and practical curriculum ensure students gain real-world skills. Join thousands of learners who have advanced their careers with us.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2><p>Get in touch for inquiries or enrollment:</p>
+        <ul>
+            <li><strong>Name:</strong> MOHAMED AMJATH (Instructor)</li>
+            <li><strong>Phone:</strong> +94 76 88 49 613</li>
+            <li><strong>Email:</strong> future@force.com</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>FUTURE FORCE ACADEMY</p>
+        <p id="live-clock">Current Time: Loading...</p>
+    </footer>
+
+    <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Check for saved theme preference in localStorage
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            body.classList.add(savedTheme);
+            updateButtonText();
+        }
+
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            const currentTheme = body.classList.contains('dark-mode') ? 'dark-mode' : '';
+            localStorage.setItem('theme', currentTheme);
+            updateButtonText();
+        });
+
+        // Update button text based on current theme
+        function updateButtonText() {
+            if (body.classList.contains('dark-mode')) {
+                themeToggle.textContent = 'Toggle Light Mode';
+            } else {
+                themeToggle.textContent = 'Toggle Dark Mode';
+            }
+        }
+
+        // Dynamic Trends Loading
+        const trendsList = document.getElementById('trends-list');
+        const refreshTrendsBtn = document.getElementById('refresh-trends');
+
+        // Sample trends data (in a real app, fetch from an API)
+        const trendsData = [
+            "AI and Machine Learning: Revolutionizing automation and decision-making.",
+            "Cloud Computing: Scalable solutions with AWS, Azure, and Google Cloud.",
+            "Cybersecurity: Rising threats and the need for robust defenses.",
+            "Quantum Computing: Breakthroughs in processing power and encryption.",
+            "5G and IoT: Connecting devices for smarter cities and homes.",
+            "Blockchain: Beyond crypto, enabling secure transactions and supply chains."
+        ];
+
+        // Function to load trends dynamically
+        function loadTrends() {
+            trendsList.innerHTML = ''; // Clear existing
+            trendsData.forEach(trend => {
+                const li = document.createElement('li');
+                li.textContent = trend;
+                trendsList.appendChild(li);
+            });
+        }
+
+        // Load trends on page load
+        loadTrends();
+
+        // Refresh trends on button click
+        refreshTrendsBtn.addEventListener('click', loadTrends);
+
+        // Live Clock in Footer
+        const liveClock = document.getElementById('live-clock');
+        function updateClock() {
+            const now = new Date();
+            liveClock.textContent = `Current Time: ${now.toLocaleTimeString()}`;
+        }
+        updateClock(); // Initial load
+        setInterval(updateClock, 1000); // Update every second
+
+       
+        
+    </script>
+</body>
+</html>

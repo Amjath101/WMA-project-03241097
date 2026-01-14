@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future Force Academy - Contact Us</title>
+    <style>
+        /* CSS Variables for Light and Dark Themes */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --header-bg: #f4f4f4;
+            --section-bg: #fafafa;
+            --accent-color: #007bff;
+            --border-color: #dddddd;
+            --form-bg: #ffffff;
+        }
+
+        body.dark-mode {
+            --bg-color: #121212;
+            --text-color: #ffffff;
+            --header-bg: #1e1e1e;
+            --section-bg: #2a2a2a;
+            --accent-color: #4dabf7;
+            --border-color: #444444;
+            --form-bg: #333333;
+        }
+
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        header {
+            background-color: var(--header-bg);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #0056b3;
+        }
+
+        #theme-toggle {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+
+        #theme-toggle:hover {
+            background-color: #0056b3;
+        }
+
+        /* Hero Section */
+        #hero {
+            background: linear-gradient(to right, var(--accent-color), #2e0208);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            margin-bottom: 20px;
+        }
+
+        #hero img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        /* Sections */
+        section {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+
+        section h2 {
+            color: var(--accent-color);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Contact Form */
+        #contact-form {
+            background-color: var(--form-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        #contact-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        #contact-form input,
+        #contact-form select,
+        #contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+
+        #contact-form input:focus,
+        #contact-form select:focus,
+        #contact-form textarea:focus {
+            border-color: var(--accent-color);
+            outline: none;
+        }
+
+        #contact-form button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1em;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        #contact-form button:hover {
+            background-color: #0056b3;
+        }
+
+        #form-message {
+            margin-top: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        /* Contact Details */
+        #contact-details {
+            text-align: center;
+        }
+
+        #contact-details ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #contact-details li {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--header-bg);
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav {
+                margin-top: 10px;
+            }
+
+            #contact-form {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Future Force Academy</h1>
+        <nav>
+            <a href="C:\Users\Ahamed Haneef\Desktop\amj web\home.html">Home</a>
+            <a href="C:\Users\Ahamed Haneef\Desktop\amj web\cources.html">Courses</a>
+            <a href="C:\Users\Ahamed Haneef\Desktop\amj web\about.html">About Us</a>
+            <a href="C:\Users\Ahamed Haneef\Desktop\amj web\contact.html">Contact</a>
+           
+        </nav>
+        <button id="theme-toggle">Toggle Dark Mode</button>
+    </header>
+
+    <section id="hero" style="border-radius: 10px 10px 40px 40px; background-color: antiquewhite;">
+        <img src="https://www.oxfordscholastica.com/wp-content/uploads/2023/07/cambridge-college.jpg" alt="Contact Future Force Academy" style="width: 100%; max-width: 600px; height: auto; border-radius: 8px; margin-bottom: 20px;">
+        <h2 style="color: #13d0d0;">Get in Touch</h2>
+        <p>Have questions about our courses or need enrollment help? Reach out to Future Force Academy in Batticaloa, Sri Lanka. We're here to assist!</p>
+    </section>
+
+    <section id="contact-form-section">
+        <h2>Contact Form</h2>
+        <form id="contact-form">
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone">
+
+            <label for="subject">Subject *</label>
+            <select id="subject" name="subject" required>
+                <option value="">Select a subject</option>
+                <option value="course-inquiry">Course Inquiry</option>
+                <option value="enrollment">Enrollment</option>
+                <option value="general">General Question</option>
+                <option value="feedback">Feedback</option>
+            </select>
+
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">Send Message</button>
+            <div id="form-message"></div>
+        </form>
+    </section>
+
+    <section id="contact-details">
+        <h2>Our Contact Details</h2>
+        <p>Visit us or call for immediate assistance. We're located in the heart of Batticaloa, Sri Lanka.</p>
+        <ul>
+            <li><strong>Phone:</strong> 0768849613</li>
+            <li><strong>Email:</strong> info@futureforceacademy.lk</li>
+            <li><strong>Address:</strong> 123 Tech Street, Batticaloa, Sri Lanka</li>
+            <li><strong>Hours:</strong> Monday - Friday, 9 AM - 6 PM</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>Future Force Academy.</p>
+        <a href="index.html" style="color: var(--accent-color); text-decoration: none; font-weight: bold;">Back to Home</a>
+    </footer>
+
+    <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Check for saved theme preference in localStorage
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            body.classList.add(savedTheme);
+            updateButtonText();
+        }
+
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            const currentTheme = body.classList.contains('dark-mode') ? 'dark-mode' : '';
+            localStorage.setItem('theme', currentTheme);
+            updateButtonText();
+        });
+
+        // Update button text based on current theme
+        function updateButtonText() {
+            if (body.classList.contains('dark-mode')) {
+                themeToggle.textContent = 'Toggle Light Mode';
+            } else {
+                themeToggle.textContent = 'Toggle Dark Mode';
+            }
+        }
+
+        // Form Validation and Submission
+        const form = document.getElementById('contact-form');
+        const messageDiv = document.getElementById('form-message');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent default form submission
+
+            // Basic validation
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value.trim();
+
+            if (!name || !email || !subject || !message) {
+                messageDiv.textContent = 'Please fill in all required fields.';
+                messageDiv.style.color = 'red';
+                return;
+            }
+
+            // Simple email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                messageDiv.textContent = 'Please enter a valid email address.';
+                messageDiv.style.color = 'red';
+                return;
+            }
+
+            // Simulate successful submission
+            messageDiv.textContent = 'Thank you for your message! We\'ll get back to you soon.';
+            messageDiv.style.color = 'green';
+            form.reset(); // Clear the form
+        });
+    </script>
+</body>
+</html>

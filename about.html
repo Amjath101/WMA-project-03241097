@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future Force Academy - About Us</title>
+    <style>
+        /* CSS Variables for Light and Dark Themes */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --header-bg: #f4f4f4;
+            --section-bg: #fafafa;
+            --accent-color: #007bff;
+            --border-color: #dddddd;
+            --card-bg: #ffffff;
+        }
+
+        body.dark-mode {
+            --bg-color: #121212;
+            --text-color: #ffffff;
+            --header-bg: #1e1e1e;
+            --section-bg: #2a2a2a;
+            --accent-color: #4dabf7;
+            --border-color: #444444;
+            --card-bg: #333333;
+        }
+
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        header {
+            background-color: var(--header-bg);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #0056b3;
+        }
+
+        #theme-toggle {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+
+        #theme-toggle:hover {
+            background-color: #0056b3;
+        }
+
+        /* Hero Section */
+        #hero {
+            background: linear-gradient(to right, var(--accent-color), #2e0208);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            margin-bottom: 20px;
+        }
+
+        #hero img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        /* Sections */
+        section {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+
+        section h2 {
+            color: var(--accent-color);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Cards for Mission/Vision */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            width: 100%;
+            max-width: 300px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        /* Timeline for Our Story */
+        .timeline {
+            list-style: none;
+            padding: 0;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--accent-color);
+        }
+
+        .timeline-item {
+            margin-bottom: 20px;
+            padding-left: 60px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .timeline-item::before {
+            content: '📅';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            font-size: 1.5em;
+        }
+
+        .timeline-content {
+            display: none;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .timeline-item.active .timeline-content {
+            display: block;
+        }
+
+        /* Team Section */
+        .team-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .team-member {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            width: 100%;
+            max-width: 250px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-member img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        /* Testimonials */
+        .testimonial {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial p {
+            font-style: italic;
+        }
+
+        .testimonial cite {
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        /* Counter */
+        #counter {
+            text-align: center;
+            font-size: 2em;
+            color: var(--accent-color);
+            margin: 20px 0;
+        }
+
+        /* CTA Button */
+        #cta-button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1.2em;
+            display: block;
+            margin: 20px auto;
+            transition: background-color 0.3s;
+        }
+
+        #cta-button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--header-bg);
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav {
+                margin-top: 10px;
+            }
+
+            .card-container, .team-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                padding-left: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Future Force Academy</h1>
+        <nav>
+            <a href="C:\Users\Ahamed Haneef\Desktop\amj web\home.html">Home</a>
+            <a href="C:\Users\Ahamed Haneef\Desktop\amj web\cources.html">Courses</a>
+            <a href="C:\Users\Ahamed Haneef\Desktop\amj web\about.html">About Us</a>
+            <a href="C:\Users\Ahamed Haneef\Desktop\amj web\contact.html">Contact</a>
+           
+        </nav>
+        <button id="theme-toggle">Toggle Dark Mode</button>
+    </header>
+
+    <section id="hero" style="border-radius: 10px 10px 40px 40px; background-color: antiquewhite;">
+        <img src="https://www.oxfordscholastica.com/wp-content/uploads/2023/07/cambridge-college.jpg" alt="Future Force Academy Banner" style="width: 100%; max-width: 100%; height: 450px; border-radius: 8px; margin-bottom: 20px; color: #2e0208;">
+        <h2 style="color: #13d0d0;">About Future Force Academy</h2>
+        <p>Empowering the next generation in Batticaloa, Sri Lanka, with cutting-edge IT skills and a vision for a brighter future.</p>
+    </section>
+
+    <section id="mission-vision">
+        <h2>Our Mission & Vision</h2>
+        <div class="card-container">
+            <div class="card">
+                <h3>🎯 Mission</h3>
+                <p>To provide accessible, high-quality IT education that bridges the gap between traditional learning and modern technology, fostering innovation and career growth in our community.</p>
+            </div>
+            <div class="card">
+                <h3>🔮 Vision</h3>
+                <p>To be the leading IT training center in Sri Lanka, inspiring students to become tech leaders who drive positive change in the digital world.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="story">
+        <h2>Our Story</h2>
+        <p id="counter">Years of Experience: 0</p>
+        <ul class="timeline">
+            <li class="timeline-item" onclick="toggleTimeline(this)">
+                <strong>2019: Founding</strong>
+                <div class="timeline-content">Future Force Academy was established in Batticaloa to address the growing need for IT skills in Sri Lanka.</div>
+            </li>
+            <li class="timeline-item" onclick="toggleTimeline(this)">
+                <strong>2020: Expansion</strong>
+                <div class="timeline-content">We introduced online courses and partnered with local businesses for real-world training.</div>
+            </li>
+            <li class="timeline-item" onclick="toggleTimeline(this)">
+                <strong>2021: Achievements</strong>
+                <div class="timeline-content">Over 500 students graduated, with many securing jobs in tech industries.</div>
+            </li>
+            <li class="timeline-item" onclick="toggleTimeline(this)">
+                <strong>2023: Today</strong>
+                <div class="timeline-content">We're a hub for innovation, offering advanced courses in AI, cybersecurity, and more.</div>
+            </li>
+        </ul>
+    </section>
+
+    <section id="team">
+        <h2>Meet Our Team</h2>
+        <div class="team-container">
+            <div class="team-member">
+                <img src="https://thumbs.dreamstime.com/b/portrait-young-handsome-man-white-shirt-outdoor-portrait-young-handsome-man-white-shirt-outdoor-nice-appearance-131934608.jpg" alt="Director">
+                <h3>MOHAMED AMJATH</h3>
+                <p>Director & Lead Instructor</p>
+                <p>Expert in Python and Web Development with 10+ years of experience.</p>
+            </div>
+            <div class="team-member">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeElF7NAWzCSdqYmOjKJ8Ji9FR5NPOLV4lTw&s" alt="Instructor">
+                <h3>HANEEF</h3>
+                <p>Cybersecurity Specialist</p>
+                <p>Certified in ethical hacking and network security.</p>
+            </div>
+            <div class="team-member">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTq0CZTdSGQu94pOmHSUcR_eJUHFxMfAX7ZyQ&s" alt="Admin">
+                <h3>KINNIYA ZAATHEER</h3>
+                <p>Administrative Head</p>
+                <p>Manages operations and student support.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="location-contact">
+        <h2>Location & Contact</h2>
+        <p><strong>Location:</strong> Future Force Academy is proudly based in Batticaloa, Sri Lanka – a vibrant city known for its rich culture and coastal beauty. Our campus is located in the heart of the city, easily accessible by public transport.</p>
+        <p><strong>Address:</strong> 123 Tech Street, Batticaloa, Sri Lanka.</p>
+        <p><strong>Contact Details:</strong></p>
+        <ul>
+            <li><strong>Phone:</strong> 0768849613</li>
+            <li><strong>Email:</strong> info@futureforceacademy.lk</li>
+            <li><strong>Website:</strong> www.futureforceacademy.lk</li>
+        </ul>
+    </section>
+
+    <section id="testimonials">
+        <h2>What Our Students Say</h2>
+        <div class="testimonial">
+            <p>"Future Force Academy transformed my career! The Python course was hands-on and practical."</p>
+            <cite>- Alex, Software Developer</cite>
+        </div>
+        <div class="testimonial">
+            <p>"Amazing instructors and a supportive environment. Highly recommend for IT beginners."</p>
+            <cite>- Priya, Data Analyst</cite>
+        </div>
+    </section>
+
+    <section id="cta">
+        <h2>Ready to Join Us?</h2>
+        <p>Enroll today and start your journey towards a tech-driven future.</p>
+        <button id="cta-button" onclick="alert('Redirecting to enrollment page...')">Enroll Now</button>
+    </section>
+
+    <footer>
+        <p>Future Force Academy.</p>
+        <a href="index.html" style="color: var(--accent-color); text-decoration: none; font-weight: bold;">Back to Home</a>
+    </footer>
+
+    <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Check for saved theme preference in localStorage
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            body.classList.add(savedTheme);
+            updateButtonText();
+        }
+
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            const currentTheme = body.classList.contains('dark-mode') ? 'dark-mode' : '';
+            localStorage.setItem('theme', currentTheme);
+            updateButtonText();
+        });
+
+        // Update button text based on current theme
+        function updateButtonText() {
+            if (body.classList.contains('dark-mode')) {
+                themeToggle.textContent = 'Toggle Light Mode';
+            } else {
+                themeToggle.textContent = 'Toggle Dark Mode';
+            }
+        }
+
+        // Timeline Toggle Function
+        function toggleTimeline(item) {
+            item.classList.toggle('active');
+        }
+
+        // Counter Animation for Years of Experience
+        let counter = document.getElementById('counter');
+        let count = 0;
+        const target = 5; // Years of experience
+        const interval = setInterval(() => {
+            if (count < target) {
+                count++;
+                counter.textContent = `Years of Experience: ${count}`;
+            } else {
+                clearInterval(interval);
+            }
+        }, 500); // Increment every 500ms
+
+        // Smooth Scrolling for Internal Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

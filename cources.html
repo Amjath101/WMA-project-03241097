@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future Force Academy - Courses</title>
+    <style>
+        /* CSS Variables for Light and Dark Themes */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --header-bg: #f4f4f4;
+            --section-bg: #fafafa;
+            --accent-color: #007bff;
+            --border-color: #dddddd;
+            --card-bg: #ffffff;
+        }
+
+        body.dark-mode {
+            --bg-color: #121212;
+            --text-color: #ffffff;
+            --header-bg: #1e1e1e;
+            --section-bg: #2a2a2a;
+            --accent-color: #4dabf7;
+            --border-color: #444444;
+            --card-bg: #333333;
+        }
+
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        header {
+            background-color: var(--header-bg);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #0056b3;
+        }
+
+        #theme-toggle {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+
+        #theme-toggle:hover {
+            background-color: #0056b3;
+        }
+
+        /* Hero Section */
+        #hero {
+            background: linear-gradient(to right, var(--accent-color), #2e0208);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            margin-bottom: 20px;
+        }
+
+        #hero img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        /* Search Bar */
+        #search-container {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--section-bg);
+            margin-bottom: 20px;
+        }
+
+        #search-input {
+            padding: 10px;
+            width: 100%;
+            max-width: 400px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        /* Sections */
+        section {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+
+        section h2 {
+            color: var(--accent-color);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Course Cards */
+        .course-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .course-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            width: 100%;
+            max-width: 350px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .course-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .course-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        .course-card .details {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        .enroll-btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+
+        .enroll-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .why-item {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            width: 100%;
+            max-width: 300px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .why-item h4 {
+            color: var(--accent-color);
+        }
+
+        /* Testimonials */
+        .testimonial {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial p {
+            font-style: italic;
+        }
+
+        .testimonial cite {
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--header-bg);
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav {
+                margin-top: 10px;
+            }
+
+            .course-container, .why-choose {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Future Force Academy</h1>
+        <nav>
+            <a href="C:\Users\Ahamed Haneef\Desktop\amj web\home.html">Home</a>
+            <a href="C:\Users\Ahamed Haneef\Desktop\amj web\cources.html">Courses</a>
+            <a href="C:\Users\Ahamed Haneef\Desktop\amj web\about.html">About Us</a>
+            <a href="C:\Users\Ahamed Haneef\Desktop\amj web\contact.html">Contact</a>
+           
+        </nav>
+        <button id="theme-toggle">Toggle Dark Mode</button>
+    </header>
+
+    <section id="hero" style="border-radius: 10px 10px 40px 40px; background-color: antiquewhite;">
+        <img src="https://www.oxfordscholastica.com/wp-content/uploads/2023/07/cambridge-college.jpg" alt="Courses at Future Force Academy" style="width: 100%; max-width: 600px; height: auto; border-radius: 8px; margin-bottom: 20px;">
+        <h2 style="color: #13d0d0;">Our IT Courses</h2>
+        <p>Discover a range of hands-on courses designed to equip you with in-demand skills. From beginners to advanced learners, find the perfect fit for your career in Batticaloa, Sri Lanka.</p>
+    </section>
+
+    <div id="search-container">
+        <input type="text" id="search-input" placeholder="Search courses...">
+    </div>
+
+    <section id="courses">
+        <h2>Course Catalog</h2>
+        <div class="course-container" id="course-list">
+            <div class="course-card" data-name="MS Office" data-desc="Master productivity tools like Word, Excel, and PowerPoint for efficient office work.">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWNNsRg08p85DkS-OVRRRyDYbJK0smILHWPA&s" alt="MS Office Course">
+                <h3>MS Office</h3>
+                <div class="details">
+                    <p><strong>Duration:</strong> 4 weeks</p>
+                    <p><strong>Prerequisites:</strong> Basic computer knowledge</p>
+                    <p><strong>Benefits:</strong> Boost office productivity and job readiness.</p>
+                </div>
+                <button class="enroll-btn" onclick="enrollCourse('MS Office')">Enroll Now</button>
+            </div>
+            <div class="course-card" data-name="Web Designing" data-desc="Learn HTML, CSS, and JavaScript to build stunning websites from scratch.">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsY3G2N4ttHI1KBmhvDHQn7cOJRYhkuHnxrQ&s" alt="Web Designing Course">
+                <h3>Web Designing</h3>
+                <div class="details">
+                    <p><strong>Duration:</strong> 6 weeks</p>
+                    <p><strong>Prerequisites:</strong> None</p>
+                    <p><strong>Benefits:</strong> Create responsive websites and launch your freelance career.</p>
+                </div>
+                <button class="enroll-btn" onclick="enrollCourse('Web Designing')">Enroll Now</button>
+            </div>
+            <div class="course-card" data-name="Python" data-desc="Dive into programming with Python, covering basics to advanced topics like data analysis.">
+                <img src="https://sofconit.com/wp-content/uploads/2023/12/Python.png" alt="Python Course">
+                <h3>Python</h3>
+                <div class="details">
+                    <p><strong>Duration:</strong> 8 weeks</p>
+                    <p><strong>Prerequisites:</strong> Basic math</p>
+                    <p><strong>Benefits:</strong> Build apps, automate tasks, and enter data science.</p>
+                </div>
+                <button class="enroll-btn" onclick="enrollCourse('Python')">Enroll Now</button>
+            </div>
+            <div class="course-card" data-name="Data Science" data-desc="Explore data manipulation, visualization, and machine learning with real-world projects.">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1WklZKoexVDmh41RmxlHVfe3svNv9y6lh1w&s" alt="Data Science Course">
+                <h3>Data Science</h3>
+                <div class="details">
+                    <p><strong>Duration:</strong> 10 weeks</p>
+                    <p><strong>Prerequisites:</strong> Python basics</p>
+                    <p><strong>Benefits:</strong> Analyze data and drive business insights.</p>
+                </div>
+                <button class="enroll-btn" onclick="enrollCourse('Data Science')">Enroll Now</button>
+            </div>
+            <div class="course-card" data-name="Cybersecurity" data-desc="Understand network security, ethical hacking, and best practices to protect digital assets.">
+                <img src="https://eu-images.contentstack.com/v3/assets/blt69509c9116440be8/blt8ffb90a2f64bacfa/6776f4544b281ca5e2bc465a/cybersecurity_NicoElNino-AlamyStockPhoto.jpg" alt="Cybersecurity Course">
+                <h3>Cybersecurity</h3>
+                <div class="details">
+                    <p><strong>Duration:</strong> 8 weeks</p>
+                    <p><strong>Prerequisites:</strong> Basic IT knowledge</p>
+                    <p><strong>Benefits:</strong> Secure systems and become a cybersecurity expert.</p>
+                </div>
+                <button class="enroll-btn" onclick="enrollCourse('Cybersecurity')">Enroll Now</button>
+            </div>
+            <div class="course-card" data-name="Other Computer-Related Courses" data-desc="Includes topics like Cloud Computing, AI Fundamentals, and more. Contact us for custom options.">
+                <img src="https://ceitcomputer.com/wp-content/uploads/2024/01/Mscit-classes-in-mumbai-1024x682.png" alt="Other Courses">
+                <h3>Other Computer-Related Courses</h3>
+                <div class="details">
+                    <p><strong>Duration:</strong> Varies (4-12 weeks)</p>
+                    <p><strong>Prerequisites:</strong> Depends on course</p>
+                    <p><strong>Benefits:</strong> Tailored learning for emerging tech fields.</p>
+                </div>
+                <button class="enroll-btn" onclick="enrollCourse('Other Courses')">Enroll Now</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="why-choose">
+        <h2>Why Choose Future Force Academy?</h2>
+        <div class="why-choose">
+            <div class="why-item">
+                <h4>🏆 Expert Instructors</h4>
+                <p>Learn from certified professionals with real-world experience.</p>
+            </div>
+            <div class="why-item">
+                <h4>💻 Hands-On Training</h4>
+                <p>Practical projects and labs to build your skills.</p>
+            </div>
+            <div class="why-item">
+                <h4>📍 Local in Batticaloa</h4>
+                <p>Convenient location with flexible schedules.</p>
+            </div>
+            <div class="why-item">
+                <h4>📞 Personalized Support</h4>
+                <p>Call us at 0768849613 for guidance.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <h2>Student Testimonials</h2>
+        <div class="testimonial">
+            <p>"The MS Office course at Future Force Academy was game-changing. I landed a job right after!"</p>
+            <cite>- Ravi, Office Assistant</cite>
+        </div>
+        <div class="testimonial">
+            <p>"Python programming here is top-notch. The instructors are amazing."</p>
+            <cite>- Sita, Developer</cite>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Ready to enroll? Reach out for more details.</p>
+        <ul>
+            <li><strong>Phone:</strong> 0768849613</li>
+            <li><strong>Email:</strong> info@futureforceacademy.lk</li>
+            <li><strong>Location:</strong> Batticaloa, Sri Lanka</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>Future Force Academy.</p>
+        <a href="index.html" style="color: var(--accent-color); text-decoration: none; font-weight: bold;">Back to Home</a>
+    </footer>
+
+    <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Check for saved theme preference in localStorage
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            body.classList.add(savedTheme);
+            updateButtonText();
+        }
+
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            const currentTheme = body.classList.contains('dark-mode') ? 'dark-mode' : '';
+            localStorage.setItem('theme', currentTheme);
+            updateButtonText();
+        });
+
+        // Update button text based on current theme
+        function updateButtonText() {
+            if (body.classList.contains('dark-mode')) {
+                themeToggle.textContent = 'Toggle Light Mode';
+            } else {
+                themeToggle.textContent = 'Toggle Dark Mode';
+            }
+        }
+
+        // Search Functionality
+        const searchInput = document.getElementById('search-input');
+        const courseCards = document.querySelectorAll('.course-card');
+
+        searchInput.addEventListener('input', () => {
+            const query = searchInput.value.toLowerCase();
+            courseCards.forEach(card => {
+                const name = card.dataset.name.toLowerCase();
+                const desc = card.dataset.desc.toLowerCase();
+                if (name.includes(query) || desc.includes(query)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Enrollment Function
+        function enrollCourse(courseName) {
+            alert(`Thank you for your interest in ${courseName}! Please call 0768849613 to enroll.`);
+        }
+    </script>
+</body
